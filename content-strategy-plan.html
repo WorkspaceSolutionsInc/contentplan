@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Own the Boring — Work_Space Content Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141412;--sub:#615e55;--mut:#9b988e;--line:#e8e5db;--line2:#d8d4c8;--bg:#faf8f3;--card:#ffffff;--accent:#0e5e4a;--accent-l:#e4f1ec;--blue:#1c5f9e;--purple:#4f47ab;--red:#a03030;--amber:#8a5410;--display:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,243,0.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1120px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.wordmark{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-0.01em}
+.wordmark span{color:var(--accent)}
+.nav a{color:var(--sub);text-decoration:none;font-size:13px;font-weight:500}
+.nav a:hover{color:var(--ink)}
+.navlinks{display:flex;gap:20px}
+.sec{max-width:1120px;margin:0 auto;padding:104px 40px}
+.sec-line{border-top:1px solid var(--line)}
+.band{background:var(--card)}
+.band-dark{background:#161511;color:#f4f2ea}
+.band-dark .lede,.band-dark p{color:#c6c3b7}
+.eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
+.band-dark .eyebrow{color:#8fbfae}.band-dark .eyebrow::before{background:#8fbfae}
+h1{font-family:var(--display);font-size:clamp(44px,6.4vw,72px);font-weight:500;letter-spacing:-0.02em;line-height:1.02}
+h2{font-family:var(--display);font-size:clamp(30px,3.6vw,42px);font-weight:500;letter-spacing:-0.015em;line-height:1.12;margin-bottom:18px;max-width:18em}
+h3{font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px}
+p{margin-bottom:14px}
+.lede{font-size:19px;line-height:1.6;color:var(--sub);max-width:620px}
+.split{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+.split-r{display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:start}
+.statstrip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line2)}
+.statstrip>div{padding:28px 32px 0 0}
+.statstrip>div+div{border-left:1px solid var(--line);padding-left:32px}
+.statstrip .n{font-family:var(--display);font-size:44px;font-weight:500;letter-spacing:-0.02em;line-height:1}
+.statstrip .l{font-size:13.5px;color:var(--sub);margin-top:10px;line-height:1.5}
+.browser{background:#fff;border:1px solid var(--line2);border-radius:12px;overflow:hidden;box-shadow:0 24px 48px -24px rgba(20,20,18,0.18)}
+.browser .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f1efe8;border-bottom:1px solid var(--line)}
+.browser .dot{width:10px;height:10px;border-radius:50%}
+.browser .url{flex:1;background:#fff;border:1px solid var(--line);border-radius:6px;font-size:11.5px;color:var(--mut);padding:4px 12px;margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cap{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.5}
+.cap b{color:var(--sub);font-weight:600}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.art{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.art:hover{transform:translateY(-3px);box-shadow:0 16px 32px -16px rgba(20,20,18,0.18)}
+.art img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#eceae2}
+.art .b{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.art .src{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--mut)}
+.art .h{font-family:var(--display);font-size:19px;font-weight:500;line-height:1.25;letter-spacing:-0.01em}
+.art .d{font-size:13px;color:var(--sub);line-height:1.5}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;padding:4px 10px;border-radius:4px}
+.t-insp{background:#f6ead8;color:var(--amber)}
+.t-orig{background:var(--accent-l);color:var(--accent)}
+.t-type{background:#edecf7;color:var(--purple)}
+.pull{font-family:var(--display);font-size:26px;font-weight:500;line-height:1.35;letter-spacing:-0.01em;max-width:26em;margin:40px 0}
+.pull em{color:var(--accent);font-style:normal}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:56px 0 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+.vs>div{padding:36px 40px}
+.vs h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px}
+.vs ul{list-style:none}
+.vs li{padding:10px 0;font-size:15px;line-height:1.5}
+.vs li+li{border-top:1px solid rgba(20,20,18,0.08)}
+.them{background:#f1efe8;color:#57544b}.them h4{color:var(--mut)}
+.usx{background:#161511;color:#f4f2ea}.usx h4{color:#8fbfae}.usx li+li{border-top:1px solid rgba(255,255,255,0.1)}
+.cellgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cell{background:var(--card);padding:28px 30px}
+.cell h4{font-size:15px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em}
+.cell p{font-size:14px;color:var(--sub);margin:0;line-height:1.6}
+.cell .co{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px}
+.jllpage{font-family:Georgia,'Times New Roman',serif;padding:26px 30px;font-size:11px;line-height:1.7;color:#3c3a35;max-height:460px;overflow:hidden;position:relative}
+.jllpage h5{font-family:Arial,sans-serif;font-size:15px;color:#1a1a1a;margin-bottom:10px;font-weight:700}
+.jllpage h6{font-family:Arial,sans-serif;font-size:11px;color:#1a1a1a;margin:14px 0 6px;font-weight:700}
+.jllpage p{margin-bottom:10px}
+.jllpage table{width:100%;border-collapse:collapse;font-size:9.5px;font-family:Arial,sans-serif;margin:10px 0}
+.jllpage th,.jllpage td{border:1px solid #d5d2c8;padding:5px 7px;text-align:left}
+.jllpage th{background:#f0efe9;font-weight:700}
+.jllfade{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,#fff)}
+.jllcta{background:#00573d;color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:700;display:inline-block;padding:8px 16px;border-radius:2px;margin-top:4px}
+@media(max-width:880px){.split,.split-r{grid-template-columns:1fr;gap:40px}.statstrip{grid-template-columns:1fr}.statstrip>div+div{border-left:none;padding-left:0;border-top:1px solid var(--line);margin-top:20px;padding-top:20px}.vs{grid-template-columns:1fr}.sec{padding:72px 24px}.nav-in{padding:14px 24px}.navlinks{display:none}.g3,.g2,.g4,.cellgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+<span class="wordmark">WORK<span>_</span>SPACE <span style="color:var(--mut);font-family:var(--sans);font-weight:400;font-size:12px;margin-left:8px">Content platform strategy · v7</span></span>
+<div class="navlinks">
+<a href="#why">Why now</a><a href="#enemy">The incumbent</a><a href="#system">The system</a><a href="#content">Content</a><a href="#tools">Tools</a><a href="#authority">Authority</a><a href="#growth">Growth</a><a href="#journey">Journey fit</a><a href="#plan">Plan</a><a href="#refs">References</a>
+</div>
+</div></nav>
+
+<header class="sec" style="padding-top:120px;padding-bottom:96px">
+<div class="split">
+<div>
+<p class="eyebrow">Strategy memo · July 2026</p>
+<h1>Own the boring. Own the customer.</h1>
+</div>
+<div style="padding-top:52px">
+<p class="lede">The office has become a dinner-table argument — yet everything anyone can learn about it is trapped in gated PDFs written by brokers, for brokers. We take the most boring category in business media, give it a young voice, and route every viewer into tools, rankings, and research we own.</p>
+</div>
+</div>
+<div class="statstrip">
+<div><div class="n">2.4M</div><div class="l">views on a tour of a 1939 office building. The demand is proven — by other people's videos.</div></div>
+<div><div class="n">¼</div><div class="l">of all US paid workdays now happen at home, and RTO mandates barely move it (Stanford / NBER). The office's role is genuinely in question.</div></div>
+<div><div class="n">0</div><div class="l">credible young voices in the category. The seat is empty; the incumbents can't take it without breaking their model.</div></div>
+</div>
+</header>
+
+<section class="sec sec-line" id="why">
+<p class="eyebrow">01 · Why now</p>
+<div class="split-r">
+<div>
+<h2>The office is being argued about at the dinner table</h2>
+<p class="lede" style="margin-bottom:28px">For fifty years, nobody talked about offices. Now everyone does. These are real stories, running right now — click any of them:</p>
+</div>
+<div style="padding-top:8px">
+<p style="font-size:15px;color:var(--sub)">The share of Fortune 100 companies requiring full-time in-person work jumped from <b style="color:var(--ink)">5% to 54% since 2023</b> (JLL, via Built In) — while Stanford's survey of 1,000+ executives found only <b style="color:var(--ink)">12% plan any RTO mandate</b>, and workers say they'd rather quit than fully return. Both things are true at once. That contradiction is a content goldmine, and it's being argued in living rooms, not boardrooms.</p>
+</div>
+</div>
+<div class="g3" style="margin-top:48px">
+<a class="art" href="https://news.stanford.edu/stories/2025/03/return-to-office-not-everybody-is-doing-it">
+<img src="https://news.stanford.edu/__data/assets/image/0028/166528/GettyImages-535058999.jpg" alt="Stanford Report article image">
+<div class="b"><span class="src">Stanford Report</span><span class="h">New survey indicates work-from-home is here to stay</span><span class="d">Only 12% of executives plan an RTO mandate. Researchers: mandates "will barely move the needle on WFH."</span></div>
+</a>
+<a class="art" href="https://builtin.com/articles/return-to-office-2026">
+<img src="https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/sites/www.builtin.com/files/2025-12/2026-office-returns.jpg" alt="Built In article illustration">
+<div class="b"><span class="src">Built In · Jan 2026</span><span class="h">Is 2026 the year we finally return to the office?</span><span class="d">Gen Z is leading a quiet office revival — seeking mentorship and connection their seniors won't come in for.</span></div>
+</a>
+<a class="art" href="https://thewalrus.ca/return-to-office-mandates/">
+<div style="aspect-ratio:16/9;background:#161511;display:flex;align-items:center;justify-content:center;padding:28px"><span style="font-family:var(--display);color:#f4f2ea;font-size:21px;line-height:1.3;letter-spacing:-0.01em;text-align:center">"Welcome back to the office. You won't get anything done."</span></div>
+<div class="b"><span class="src">The Walrus · Jan 2026</span><span class="h">The Canadian RTO backlash, in one headline</span><span class="d">Workers return to find no desk, no monitor, no point — via reporting from The Globe and Mail.</span></div>
+</a>
+</div>
+<p class="pull">Every company — and every household — now makes active workspace decisions. Decisions need information. <em>Information is our product.</em> And this is the rare B2B category with genuine consumer heat: the regular person we capture is also the employee, the founder, and eventually the buyer.</p>
+</section>
+
+<section class="band sec-line" id="enemy"><div class="sec">
+<p class="eyebrow">02 · The incumbent</p>
+<div class="split-r">
+<div>
+<h2>This is what the industry actually publishes</h2>
+<p class="lede">Below left: the actual body of JLL's U.S. &amp; Canada Office Fit-Out Costs Guide 2026, verbatim. Genuinely fascinating data — $295/sqft averages, AI raising the cost floor — delivered as a wall of consultant prose that ends in a "talk to our advisory team" button.</p>
+</div>
+<div style="padding-top:8px">
+<p style="font-size:15px;color:var(--sub)">Read one paragraph of it. This is the state of the art in workspace content: 3,600 projects of hard-won data from 50 markets, written so that only another broker could love it. Nobody at the dinner table — no founder, no office manager, no 28-year-old signing a first lease — will ever get past the second sentence. <b style="color:var(--ink)">That prose gap is the entire opportunity.</b></p>
+</div>
+</div>
+<div class="g2" style="margin-top:56px;align-items:start">
+<div>
+<div class="browser">
+<div class="bar"><span class="dot" style="background:#f57369"></span><span class="dot" style="background:#f5bf4f"></span><span class="dot" style="background:#61c454"></span><span class="url">jll.com/en-us/guides/us-canada-office-fit-out-costs-guide</span></div>
+<div class="jllpage">
+<h5>Cost certainty in an uncertain environment</h5>
+<p>The U.S. and Canadian office markets are recovering, with availability falling for seven consecutive quarters, but the ground-up construction cycle that would have supplied new inventory has not returned. Renovation and lease renewal investment now constitute the primary pathway for occupiers to establish competitive workplaces.</p>
+<h6>Key highlights</h6>
+<p><b>The cost floor is set to rise with the prevalence of AI.</b> Technology infrastructure requirements embedded in a standard corporate fit-out are categorically more complex and expensive than just a few years ago. MEP and AV/IT together represent a growing share of total fit-out cost, reaching up to 12% in some markets, and that share will grow as technical workplace specifications become the norm.</p>
+<p><b>Cost growth is directionally consistent but locally variable.</b> The spread between the highest- and lowest-cost markets has widened in 2026, reflecting increasingly divergent labor availability and demand conditions. A single average figure obscures variation in mechanisms and trajectories that are consequential for capital planning.</p>
+<h6>Office layout typologies and quality tiers</h6>
+<table>
+<tr><th></th><th>Open &amp; Agile (Progressive)</th><th>Highly Spatial Variety (Moderate)</th><th>Structured (Traditional)</th></tr>
+<tr><td>Baseline</td><td>$255/sqft</td><td>$275/sqft</td><td>$285/sqft</td></tr>
+<tr><td>Medium</td><td>$275/sqft</td><td>$295/sqft</td><td>$310/sqft</td></tr>
+<tr><td>High</td><td>$310/sqft</td><td>$340/sqft</td><td>$355/sqft</td></tr>
+</table>
+<p>Policy impacts on materials have not yet fully arrived in bids. The gap between current pricing and the upper bound of cost impacts from national policies is widest in Electrical and HVAC, precisely where project complexity and demand are accelerating…</p>
+<h6>Get in touch</h6>
+<p>Get in touch with our experts to find out how we can support your real estate capital planning and project delivery with strategic advice and market insights.</p>
+<span class="jllcta">Let's talk →</span>
+<div class="jllfade"></div>
+</div>
+</div>
+<p class="cap"><b>Their actual copy, word for word</b> — including the real typology price table and the real "Let's talk" hand-off to the advisory team. The reader is the lead.</p>
+</div>
+<div>
+<div class="browser">
+<div class="bar"><span class="dot" style="background:#f57369"></span><span class="dot" style="background:#f5bf4f"></span><span class="dot" style="background:#61c454"></span><span class="url">jll.com — regional cost variations (live chart)</span></div>
+<div style="padding:12px;background:#fff"><img src="https://public.flourish.studio/visualisation/28946996/thumbnail" alt="JLL regional cost chart" style="width:100%;display:block;border-radius:4px"></div>
+</div>
+<div class="browser" style="margin-top:16px">
+<div class="bar"><span class="dot" style="background:#f57369"></span><span class="dot" style="background:#f5bf4f"></span><span class="dot" style="background:#61c454"></span><span class="url">jll.com — cost drivers (live chart)</span></div>
+<div style="padding:12px;background:#fff"><img src="https://public.flourish.studio/visualisation/28947066/thumbnail" alt="JLL cost drivers chart" style="width:100%;display:block;border-radius:4px"></div>
+</div>
+<p class="cap"><b>Their actual charts</b>, pulled live from the report. Excellent data, real insight — and the only people who will ever see it are the ones filling in a six-field contact form.</p>
+</div>
+</div>
+<div class="vs">
+<div class="them">
+<h4>Their model</h4>
+<ul><li>80 pages, annually, behind a contact form</li><li>Written for brokers, in broker language</li><li>The reader is the lead; an advisor calls</li><li>No presence where the argument is happening</li></ul>
+</div>
+<div class="usx">
+<h4>Our model</h4>
+<ul><li>60-second videos with receipts on screen</li><li>Free interactive tools instead of gates</li><li>Rankings and research published open</li><li>Cited by AI, shared at the dinner table</li></ul>
+</div>
+</div>
+<p class="pull" style="margin-bottom:0">Our entire strategy in one sentence: <em>take what's behind that form, and put it where people actually are.</em></p>
+</div></section>
+
+<section class="sec sec-line">
+<p class="eyebrow">03 · Proof the playbook works</p>
+<div class="split-r">
+<div><h2>Boring-industry companies that became media — and won</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">"Real content engine + boring category" is a proven trade. The pattern is always the same: own the audience with media, monetize with the business.</p></div>
+</div>
+<div class="cellgrid" style="margin-top:48px">
+<div class="cell"><p class="co">HubSpot × The Hustle / MFM</p><h4>Bought the audience outright</h4><p>Acquired The Hustle, runs My First Million — business media as the top of a software funnel. Your board literally cites MFM's office build.</p></div>
+<div class="cell"><p class="co">Wirecutter → NYT</p><h4>Rankings became an acquisition</h4><p>Rigorous "best for you" rankings built enough trust that the New York Times bought the company. The model for Gear and The Rankings.</p></div>
+<div class="cell"><p class="co">MyGolfSpy</p><h4>Independent testing as moat</h4><p>No pay-to-play, methodology public, an industry that fears its lists. The model for ranking fit-out vendors.</p></div>
+<div class="cell"><p class="co">CB Insights</p><h4>A data company with a personality</h4><p>Made venture data funny; the newsletter became the enterprise sales engine. The model for our voice.</p></div>
+<div class="cell"><p class="co">Morning Brew</p><h4>Young voice, old category</h4><p>Business news for people who'd never read the WSJ — grew into a nine-figure acquisition. The model for the tone.</p></div>
+<div class="cell"><p class="co">Duolingo</p><h4>Brands can win short-form</h4><p>Proof a brand account with a real voice can out-perform creators on their own turf.</p></div>
+</div>
+</section>
+
+<style>
+.layer{border:1px solid var(--line2);border-radius:14px;overflow:hidden;margin:0 auto}
+.layer-head{padding:18px 28px;color:#fff;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.layer-head .ln{font-size:11px;font-weight:700;letter-spacing:0.14em}
+.layer-head .lt{font-family:var(--display);font-size:20px;font-weight:500}
+.layer-head .ld{font-size:12.5px;opacity:0.85;margin-left:auto}
+.layer-body{display:grid;background:var(--line);gap:1px}
+.layer-body>div{background:var(--card);padding:20px 24px}
+.layer-body h5{font-size:14px;font-weight:600;margin-bottom:4px;letter-spacing:-0.01em}
+.layer-body p{font-size:12.5px;color:var(--sub);margin:0;line-height:1.55}
+.lcon{width:1px;height:26px;background:var(--line2);margin:0 auto}
+.lcon-lbl{text-align:center;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--mut);padding:6px 0}
+.chanrow{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:48px 0 0}
+.chanrow>div{background:var(--card);padding:22px 20px}
+.chanrow .logo{height:26px;display:flex;align-items:center;margin-bottom:12px;font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.chanrow h5{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.chanrow p{font-size:12px;color:var(--sub);margin:0;line-height:1.5}
+.yt-badge{background:#f00;color:#fff;border-radius:6px;padding:2px 9px;font-size:11px;display:inline-flex;align-items:center}
+.phones{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin:48px 0 0}
+.phone{width:232px;background:#0a0a0a;border-radius:30px;padding:10px;box-shadow:0 24px 48px -20px rgba(20,20,18,0.35)}
+.phone .notch{width:80px;height:18px;background:#0a0a0a;border-radius:0 0 12px 12px;margin:0 auto 6px}
+.phone .pscreen{border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:#000}
+.phone .pscreen iframe{width:100%;height:100%;border:0;display:block}
+.phone .plabel{color:#8b887c;font-size:11px;text-align:center;padding:10px 4px 4px;line-height:1.4}
+.pillar{border:1px solid var(--line);border-radius:16px;margin:36px 0;overflow:hidden;background:var(--card)}
+.pillar-head{padding:26px 40px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;color:#fff}
+.pillar-head .wm{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-0.01em}
+.pillar-head .meta{font-size:12.5px;opacity:0.88;text-align:right}
+.pillar-body{padding:34px 40px 38px}
+.pillar-desc{font-size:15.5px;color:var(--sub);max-width:700px;line-height:1.65}
+.slabel{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--mut);margin:32px 0 14px;display:flex;align-items:center;gap:12px}
+.slabel::after{content:"";flex:1;height:1px;background:var(--line)}
+.vidgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.vidgrid.v3{grid-template-columns:repeat(3,1fr)}
+.vid{background:var(--bg);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink);display:block;transition:transform .18s,box-shadow .18s}
+.vid:hover{transform:translateY(-3px);box-shadow:0 14px 28px -14px rgba(20,20,18,0.2)}
+.vid .tw{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e8e5db}
+.vid img{width:100%;height:100%;object-fit:cover;display:block}
+.vid .py{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:28px;background:rgba(0,0,0,0.75);border-radius:7px;display:flex;align-items:center;justify-content:center}
+.vid .py::after{content:"";border-left:11px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px}
+.vid .vb{padding:11px 13px 13px}
+.vid .vt{font-size:13px;font-weight:600;line-height:1.35;margin:6px 0 3px;letter-spacing:-0.01em}
+.vid .vm{font-size:11.5px;color:var(--mut)}
+.embedgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.embed{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#000}
+.embed iframe{width:100%;height:100%;border:0;display:block}
+.epl{border-top:1px solid var(--line)}
+.ep{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.ep b{font-size:15px;font-weight:600;letter-spacing:-0.01em}
+.ep .w{display:block;font-size:13px;color:var(--sub);margin-top:2px;line-height:1.55}
+.toolcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden}
+.toolui{background:#161511;padding:26px 26px 22px;min-height:170px}
+.toolui .tt{color:#8fbfae;font-size:10.5px;font-weight:700;letter-spacing:0.12em;margin-bottom:14px}
+.gauge{display:flex;align-items:baseline;gap:10px}
+.gauge .gn{font-family:var(--display);font-size:52px;color:#f4f2ea;line-height:1}
+.gauge .gd{color:#8b887c;font-size:12px}
+.gbar{height:7px;border-radius:4px;background:#2c2b25;margin-top:16px;overflow:hidden}
+.gbar i{display:block;height:100%;width:43%;background:#d9a03c}
+.budgetrow{display:flex;height:26px;border-radius:6px;overflow:hidden;margin-top:8px}
+.budgetrow span{display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:600;color:#fff}
+.toolinfo{padding:22px 26px 26px}
+.toolinfo h4{font-size:16px;font-weight:600;margin-bottom:6px}
+.toolinfo p{font-size:13px;color:var(--sub);margin:0;line-height:1.6}
+.scen{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.scen>div{border:1px solid #2c2b25;border-radius:8px;padding:10px 12px}
+.scen .sl{color:#8b887c;font-size:9.5px;font-weight:600;letter-spacing:0.06em}
+.scen .sv{color:#f4f2ea;font-family:var(--display);font-size:19px;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:28px 0 0}
+th{text-align:left;font-weight:600;padding:12px 16px;border-bottom:1px solid var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--sub)}
+td{padding:15px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+.sm{font-size:13.5px;color:var(--sub)}
+@media(max-width:880px){.chanrow{grid-template-columns:repeat(2,1fr)}.vidgrid,.vidgrid.v3,.embedgrid{grid-template-columns:1fr}.pillar-head,.pillar-body{padding-left:24px;padding-right:24px}.scen{grid-template-columns:1fr}.sysgrid{grid-template-columns:1fr!important}.jphase{grid-template-columns:1fr!important}}
+.jstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.jph{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.jph.hot{border-color:#c9a227;box-shadow:0 0 0 1px #c9a227}
+.jph-h{padding:14px 18px;border-bottom:1px solid var(--line)}
+.jph-h .pn{font-size:10px;font-weight:700;letter-spacing:0.12em;color:var(--mut)}
+.jph-h .pt{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-0.01em;margin-top:2px}
+.jph-h .ms{font-size:11px;color:var(--sub);margin-top:2px}
+.jph-b{padding:14px 18px 16px;flex:1}
+.jph-b p{font-size:12px;color:var(--sub);line-height:1.55;margin:0 0 8px}
+.jph-b .ours{font-size:12.5px;line-height:1.6;margin:0}
+.jph-b .ours b{color:var(--ink);font-weight:600}
+.jph-quote{font-size:11px;color:var(--accent);font-style:italic;margin:0 0 8px}
+@media(max-width:880px){.jstrip{grid-template-columns:1fr}}
+.pc{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:2.5px 8px;border-radius:4px;margin-right:4px;vertical-align:2px}
+.pc-w{background:rgba(255,255,255,0.22);color:#fff}
+.pc-d{background:#161511;color:#fff}
+.pc-p1{background:#e3edf7;color:#1c5f9e}.pc-p23{background:#e4f1ec;color:#0e5e4a}.pc-p378{background:#f6ead8;color:#8a5410}.pc-p4{background:#eceae2;color:#57544b}
+.legend{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:28px}
+.legend .li{display:flex;align-items:center;gap:7px;font-size:12px;color:#c6c3b7}
+.legend .sw{width:12px;height:12px;border-radius:3px}
+.mv{font-size:12px;font-weight:600;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.95)}
+.jt{width:100%;border-collapse:collapse;margin-top:48px;font-size:13px}
+.jt th{text-align:left;font-weight:600;padding:10px 14px;border-bottom:1px solid var(--ink);font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--sub);vertical-align:bottom}
+.jt td{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;color:var(--sub);font-size:12.5px}
+.jt td:first-child{min-width:150px}
+.jt .pnm{font-family:var(--display);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;display:block}
+.jt .pobj{font-size:11px;color:var(--accent);font-style:italic;display:block;margin-top:4px;line-height:1.45}
+.jt .pms{font-size:10px;font-weight:700;letter-spacing:0.08em;color:var(--mut);display:block;margin-top:6px}
+.jt b{color:var(--ink);font-weight:600}
+.jt tr.hotr td{background:#fdf9ee}
+.jt .cnv{font-size:12px}.jt .cnv b{color:var(--accent)}
+.wk{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:24px}
+.wk>div{background:var(--card);padding:18px 18px 20px}
+.wk .dy{font-size:10px;font-weight:700;letter-spacing:0.12em;color:#0a66c2;margin-bottom:8px}
+.wk h5{font-size:13.5px;font-weight:600;margin-bottom:4px;letter-spacing:-0.01em}
+.wk p{font-size:12px;color:var(--sub);margin:0;line-height:1.55}
+@media(max-width:880px){.wk{grid-template-columns:1fr}}
+</style>
+
+<section class="band-dark" id="system"><div class="sec">
+<p class="eyebrow">04 · The system</p>
+<div class="split-r">
+<div><h2 style="color:#f4f2ea">Not six shows — one machine with four layers</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px">Getting the classification right matters, because each thing works differently: content earns attention, tools capture the lead, authority assets compound trust, and the business converts it. The growth engines — partnerships, LinkedIn, AI SEO, conquest ads — are the connective tissue that moves people between layers.</p></div>
+</div>
+<div class="legend">
+<span style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#8fbfae">THE THROUGH-LINE — THESE TAGS FOLLOW EVERY ELEMENT FROM HERE ON:</span>
+<span class="li"><span class="sw" style="background:#1c5f9e"></span>Layer 1 Content</span>
+<span class="li"><span class="sw" style="background:#0e5e4a"></span>Layer 2 Tools</span>
+<span class="li"><span class="sw" style="background:#8a5410"></span>Layer 3 Authority</span>
+<span class="li"><span class="sw" style="background:#3a3930"></span>Layer 4 Business</span>
+<span class="li"><span class="pc pc-w" style="background:#2c2b25">P1–P8</span>= the customer journey phase it serves (Awareness → Renewal, the Backbone's 8-phase loop)</span>
+</div>
+<div style="display:grid;grid-template-columns:150px 1fr 150px;gap:18px;max-width:1000px;margin:56px auto 0;align-items:start" class="sysgrid">
+<div style="padding-top:8px">
+<p style="font-size:10.5px;font-weight:700;letter-spacing:0.12em;color:#8fbfae;margin-bottom:14px">ENGINES IN →</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">Partnerships</b><br>pour borrowed audiences into Content</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">LinkedIn daily</b><br>carries every layer to the buying group</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">AI SEO + conquest ads</b><br>drop active buyers straight into Tools</p>
+</div>
+<div>
+<div class="layer" style="width:100%">
+<div class="layer-head" style="background:#1c5f9e"><span class="ln">LAYER 1 · CONTENT</span><span class="lt">Four pillars</span><span class="ld">Video franchises · earns attention · journey phase 1</span></div>
+<div class="layer-body" style="grid-template-columns:repeat(4,1fr)">
+<div><h5>Office Cribs</h5><p>Spaces &amp; tours</p></div>
+<div><h5>Gear</h5><p>Products, tested for fit</p></div>
+<div><h5>The Setup</h5><p>Optimization &amp; science</p></div>
+<div><h5>The Real Cost</h5><p>Money — flagship</p></div>
+</div>
+</div>
+<p class="lcon-lbl" style="padding-top:14px">↓ every video's single CTA is a tool · conversion: viewer → tool session</p>
+<div class="layer" style="width:90%">
+<div class="layer-head" style="background:#0e5e4a"><span class="ln">LAYER 2 · TOOLS</span><span class="lt">One platform, three doors</span><span class="ld">Interactive products · captures the lead · journey phases 2–3</span></div>
+<div class="layer-body" style="grid-template-columns:repeat(3,1fr)">
+<div><h5>Workspace Scorecard</h5><p>Grade your office in 3 minutes</p></div>
+<div><h5>Budget Checker</h5><p>What should it actually cost?</p></div>
+<div><h5>Scenario Planner</h5><p>Model your next move</p></div>
+</div>
+</div>
+<p class="lcon-lbl" style="padding-top:14px">↓ email to save results · sessions become proprietary data · conversion: session → identified lead</p>
+<div class="layer" style="width:80%">
+<div class="layer-head" style="background:#8a5410"><span class="ln">LAYER 3 · AUTHORITY</span><span class="lt">Compounding assets</span><span class="ld">Rankings, research, people, rooms · journey phases 3, 7–8</span></div>
+<div class="layer-body" style="grid-template-columns:repeat(4,1fr)">
+<div><h5>The Rankings</h5><p>Interactive vendor lists</p></div>
+<div><h5>The Research</h5><p>Open benchmark reports</p></div>
+<div><h5>Advisory board</h5><p>Five expert seats</p></div>
+<div><h5>Events</h5><p>The event ladder, quarterly → annual</p></div>
+</div>
+</div>
+<p class="lcon-lbl" style="padding-top:14px">↓ trust at decision time · board intros open enterprise doors · conversion: lead → conversation</p>
+<div class="layer" style="width:66%">
+<div class="layer-head" style="background:#3a3930"><span class="ln">LAYER 4 · BUSINESS</span><span class="lt">The workspace company</span><span class="ld">Fit-outs · furniture · advisory · journey T-0 and beyond</span></div>
+</div>
+<p class="lcon-lbl" style="padding-top:14px">↺ delivered projects become Cribs episodes and case studies · clients re-enter at the top — a loop, not a funnel</p>
+</div>
+<div style="padding-top:8px">
+<p style="font-size:10.5px;font-weight:700;letter-spacing:0.12em;color:#8fbfae;margin-bottom:14px">→ VALUE OUT</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">Attention</b><br>views, followers, branded search</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">Owned leads</b><br>emails + tool data nobody can take away</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5;margin-bottom:14px"><b style="color:#f4f2ea">Citations</b><br>press, AI answers, speaking invites</p>
+<p style="font-size:12px;color:#c6c3b7;line-height:1.5"><b style="color:#f4f2ea">Pipeline</b><br>SMB direct + enterprise via the board</p>
+</div>
+</div>
+<p style="font-size:14px;max-width:720px;margin:48px auto 0;text-align:center">The flywheel: content → tool usage → proprietary data → open research and rankings → citations by press and AI → cheaper attention → more tool usage. The incumbents can't follow without breaking their broker model.</p>
+</div></section>
+
+<section class="sec sec-line">
+<p class="eyebrow">05 · Channels &amp; voice</p>
+<div class="split-r">
+<div><h2>One production system, every channel fed — and this is what a short looks like</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">The phones below show real shorts from the genre — tap any one to watch it. Ours follow the same grammar with our four rules: receipts on screen · we actually did it · translate the suit · the villain is opacity, never people. Each long-form episode cuts into 5–8 of these. <span class="pc pc-p1">P1</span> This whole layer serves journey phase 1: awareness before the trigger.</p></div>
+</div>
+<div class="phones">
+<div class="phone"><div class="notch"></div><a class="pscreen" href="https://www.youtube.com/shorts/lw2rpvUVumc" style="display:block;position:relative"><img src="https://i.ytimg.com/vi/lw2rpvUVumc/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lw2rpvUVumc/hqdefault.jpg'" alt="Used Aeron short" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:32px;background:rgba(0,0,0,0.75);border-radius:8px;display:flex;align-items:center;justify-content:center"><span style="border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px"></span></span></a><p class="plabel">Real short — tap to watch: buying a used Herman Miller Aeron · the <b style="color:#c6c3b7">Gear</b> grammar</p></div>
+<div class="phone"><div class="notch"></div><a class="pscreen" href="https://www.youtube.com/shorts/SzasjJIqzd4" style="display:block;position:relative"><img src="https://i.ytimg.com/vi/SzasjJIqzd4/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SzasjJIqzd4/hqdefault.jpg'" alt="MrBeast studio tour short" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:32px;background:rgba(0,0,0,0.75);border-radius:8px;display:flex;align-items:center;justify-content:center"><span style="border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px"></span></span></a><p class="plabel">Real short — tap to watch: MrBeast studio tour · the <b style="color:#c6c3b7">Office Cribs</b> grammar</p></div>
+<div class="phone"><div class="notch"></div><a class="pscreen" href="https://www.youtube.com/shorts/HkIaLyfd268" style="display:block;position:relative"><img src="https://i.ytimg.com/vi/HkIaLyfd268/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/HkIaLyfd268/hqdefault.jpg'" alt="Desk setup short" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:32px;background:rgba(0,0,0,0.75);border-radius:8px;display:flex;align-items:center;justify-content:center"><span style="border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px"></span></span></a><p class="plabel">Real short — tap to watch: desk setup tour · the <b style="color:#c6c3b7">Setup</b> grammar</p></div>
+</div>
+<div class="chanrow">
+<div><div class="logo"><span class="yt-badge">▶ YouTube</span></div><h5>Trust engine</h5><p>Long-form pillars · 1–2/week</p></div>
+<div><div class="logo" style="font-family:var(--sans)">TikTok</div><h5>Discovery</h5><p>The dinner-table audience · daily</p></div>
+<div><div class="logo" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;color:transparent">Instagram</div><h5>Design audience</h5><p>Reels daily · Cribs performs here</p></div>
+<div><div class="logo"><span class="yt-badge" style="border-radius:14px">▶ Shorts</span></div><h5>Discovery → long-form</h5><p>Daily · same cuts as TikTok</p></div>
+<div><div class="logo" style="color:#0a66c2">LinkedIn</div><h5>The enterprise engine</h5><p>Daily · founder POV + research + board clips</p></div>
+<div><div class="logo" style="color:var(--accent)">Newsletter</div><h5>The owned list</h5><p>Weekly · CB Insights voice</p></div>
+</div>
+</section>
+
+<section class="band sec-line" id="content"><div class="sec">
+<p class="eyebrow">06 · Layer 1 — Content</p>
+<div class="split-r">
+<div><h2>Four pillars that earn the attention</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">These are the video franchises — nothing else lives here. Each pillar separates <span class="tag t-insp">Inspiration</span> (other people's real videos, proving demand) from <span class="tag t-orig">Original</span> (episodes only we can make), and each drives to one specific tool.</p></div>
+</div>
+
+<div class="pillar">
+<div class="pillar-head" style="background:#1c5f9e">
+<span class="wm">Office Cribs</span>
+<span class="meta"><span class="pc pc-w">P1 awareness</span><span class="pc pc-w">P5–P6 filmed here</span><span class="pc pc-w">P8 champion episodes</span><br>Spaces &amp; tours · weekly long-form + daily clips<br><b>Moves the customer:</b> stranger → follower → "score your office" (Scorecard)</span>
+</div>
+<div class="pillar-body">
+<p class="pillar-desc">MTV Cribs for offices — your "ad-style house tours, but for offices." Tour energy, but we reveal what everything costs. The dinner-table pillar: pure curiosity, zero jargon. Client projects filmed in P5–P6 become the episodes; champions in P8 become the guests.</p>
+<p class="slabel">Proof it works — real videos, click to watch</p>
+<div class="vidgrid v3" style="margin-top:14px">
+<a class="vid" href="https://www.youtube.com/watch?v=yb-kYt1lpnI"><div class="tw"><img src="https://i.ytimg.com/vi/yb-kYt1lpnI/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">World's greatest office — SC Johnson</p><p class="vm">Vox · ~2.4M · your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=kObmcOaPcbM"><div class="tw"><img src="https://i.ytimg.com/vi/kObmcOaPcbM/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">We built the world's greatest office</p><p class="vm">Dude Perfect · DPHQ3</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=lUzpK0tGFcE"><div class="tw"><img src="https://i.ytimg.com/vi/lUzpK0tGFcE/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">The MrBeast mega-studio tour</p><p class="vm">Your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=cXDQ33cex-g"><div class="tw"><img src="https://i.ytimg.com/vi/cXDQ33cex-g/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Inside my backyard office studio (568 sqft)</p><p class="vm">Your "backyard offices" note</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=HBe6XUFvtRY"><div class="tw"><img src="https://i.ytimg.com/vi/HBe6XUFvtRY/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Coolest office ever? Google office tour</p><p class="vm">Your "coolest HQs" note</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=yzhky8R87uY"><div class="tw"><img src="https://i.ytimg.com/vi/yzhky8R87uY/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">10 best offices in the world</p><p class="vm">Your "workspaces that inspire" note</p></div></a>
+</div>
+<p class="slabel">Ours to make</p>
+<div class="epl">
+<div class="ep"><span class="tag t-orig">Original</span><span><b>The most remote / most unique workplace</b><span class="w">Your board. Fire lookouts, converted churches, an office in a bank vault — with the lease terms.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Toronto startup tours: guess the rent</b><span class="w">Tour the space, audience guesses, we reveal the number. Local, repeatable, lead-generating.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Toronto's underground city</b><span class="w">Your board. The PATH: 30km of offices under downtown.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>$200/sqft vs $500/sqft — spot the difference</b><span class="w">Two real fit-outs side by side. Only a firm with project access can film this.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Honest WeWork reviews · offices frozen in 1995</b><span class="w">Your board — review format + "spaces used to be productive &amp; creative" nostalgia.</span></span></div>
+</div>
+</div>
+</div>
+
+<div class="pillar">
+<div class="pillar-head" style="background:#0e5e4a">
+<span class="wm">Gear</span>
+<span class="meta"><span class="pc pc-w">P1 awareness</span><span class="pc pc-w">P7 refresh triggers</span><br>Products, tested for fit · 2×/wk + monthly guides<br><b>Moves the customer:</b> stranger → trusts our verdicts → "budget your setup" (Budget Checker) · re-warms P7 accounts as assets age</span>
+</div>
+<div class="pillar-body">
+<p class="pillar-desc">The Wirecutter of the office: chairs, desks, pods, accessories, apps, tech — everything that augments the office. The angle is <b>fit, not price</b>: finding what's right for you — sometimes brand new, sometimes a used find, sometimes the $200 chair over the $1,800 one. Through the business we can put hands on all of it, and test with receipts. In P7, refresh guides keyed to asset age (furniture 8–12 yrs, AV 3–5 yrs) are the journey's named refresh campaign.</p>
+<p class="slabel">Proof it works — real videos, click to watch</p>
+<div class="vidgrid v3" style="margin-top:14px">
+<a class="vid" href="https://www.youtube.com/watch?v=x-aeDaHIEbY"><div class="tw"><img src="https://i.ytimg.com/vi/x-aeDaHIEbY/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Get a Herman Miller Aeron for cheap + buying guide</p><p class="vm">~1.4M · your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=S-wch_zWrV8"><div class="tw"><img src="https://i.ytimg.com/vi/S-wch_zWrV8/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">How a chair exposed the worst YouTubers</p><p class="vm">Ahnestly · ~1M · your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=BbTnDBiWmI4"><div class="tw"><img src="https://i.ytimg.com/vi/BbTnDBiWmI4/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Are wood slat wall panels worth it?</p><p class="vm">~857K · your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=D0TlIWpUFdU"><div class="tw"><img src="https://i.ytimg.com/vi/D0TlIWpUFdU/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">What are the best chairs under $200?</p><p class="vm">~683K · your board</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=CWBxNd7fdkM"><div class="tw"><img src="https://i.ytimg.com/vi/CWBxNd7fdkM/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">New vs used Herman Miller — I spent $2,437 to find out</p><p class="vm">Receipts-on-screen, the fit-not-price grammar</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=QvefFkmgs2E"><div class="tw"><img src="https://i.ytimg.com/vi/QvefFkmgs2E/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Is the Herman Miller Aeron worth the high price?</p><p class="vm">The "worth it" verdict format</p></div></a>
+</div>
+<p class="slabel">Ours to make</p>
+<div class="epl">
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Right For You — fit-first buying guides</b><span class="w">Chairs, standing desks, pods, accessories: every verdict is "best for [body / budget / use]," never one winner. New and used side by side.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>We furnished a 6-person office three ways</b><span class="w">Same space: all-new, all-used, mixed — with the real invoice for each. The thesis as one video.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Office pods are a ripoff — we built our own</b><span class="w">Your board. Tear down a $25K pod, build one for $3K, then say honestly who should still buy the $25K one.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>The software your office runs on</b><span class="w">"Augment the office" includes apps: booking, sensors, visitor systems — reviewed like gadgets.</span></span></div>
+</div>
+</div>
+</div>
+
+<div class="pillar">
+<div class="pillar-head" style="background:#4f47ab">
+<span class="wm">The Setup</span>
+<span class="meta"><span class="pc pc-w">P1 awareness</span><span class="pc pc-w">P7 re-runs</span><br>Optimization &amp; the science of space · weekly<br><b>Moves the customer:</b> WFH viewer → "score your setup" (Scorecard home edition) · P7: "how is the space performing?" re-runs</span>
+</div>
+<div class="pillar-body">
+<p class="pillar-desc">Home office setups plus the science: lighting, acoustics, air, layout. The Huberman angle from your board, with the scorecard as the measuring stick — the direct line to the quarter of workdays now happening at home.</p>
+<p class="slabel">Proof it works — real videos</p>
+<div class="vidgrid v3">
+<a class="vid" href="https://www.youtube.com/watch?v=23t_ynq2tmk"><div class="tw"><img src="https://i.ytimg.com/vi/23t_ynq2tmk/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Huberman: Optimizing workspace for productivity, focus &amp; creativity</p><p class="vm">Your board · the science spine</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=8gHorgCbsHs"><div class="tw"><img src="https://i.ytimg.com/vi/8gHorgCbsHs/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">Dream home office makeover &amp; tour</p><p class="vm">Your "home office setups" note (starred)</p></div></a>
+<a class="vid" href="https://www.youtube.com/watch?v=EznyfD3lcq0"><div class="tw"><img src="https://i.ytimg.com/vi/EznyfD3lcq0/hqdefault.jpg" alt=""><span class="py"></span></div><div class="vb"><span class="tag t-insp">Inspiration</span><p class="vt">My dream desk setup — home office essentials</p><p class="vm">The setup-tour format at scale</p></div></a>
+</div>
+<p class="slabel">Ours to make</p>
+<div class="epl">
+<div class="ep"><span class="tag t-orig">Original</span><span><b>We fixed a subscriber's office</b><span class="w">Audience submits scorecard results; we fix the worst one on camera. Tool and content feed each other.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Home office setups, scored</b><span class="w">Setup-tour format, but every tour ends with a scorecard number.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Your office is too loud — the $40 fix</b><span class="w">Cheap wins backed by the science; feeds Gear.</span></span></div>
+</div>
+</div>
+</div>
+
+<div class="pillar" style="border-color:#a03030">
+<div class="pillar-head" style="background:#a03030">
+<span class="wm">The Real Cost</span>
+<span class="meta"><span class="pc pc-w">P1 awareness</span><span class="pc pc-w">P2 education</span><span class="pc pc-w">P4 decision receipts</span><br>FLAGSHIP · money &amp; the office business · biweekly + clips<br><b>Moves the customer:</b> trigger fires → our numbers frame their business case → Budget Checker + Scenario Planner → approvers cite us at T-0</span>
+</div>
+<div class="pillar-body">
+<p class="pillar-desc">Your "real cost of the office buyout" note, grown into the pillar that attacks the gated-PDF model head-on. Every episode un-gates something the industry hides behind forms and jargon — starting with the JLL guide shown in full in section 02. Highest-converting pillar: these viewers are in buying mode.</p>
+<p class="slabel">Ours to make — the incumbents' whitepapers are the source material</p>
+<div class="epl">
+<div class="ep"><span class="tag t-orig">Original</span><span><b>The real cost of the office buyout</b><span class="w">Your board. Filmed first-person: what happens, who gets paid, where 400 desks go.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Where your $295/sqft goes</b><span class="w">JLL's real number (section 02) broken down visually: construction, MEP, AV/IT, furniture, fees.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Whitepaper autopsies</b><span class="w">"We read JLL's 80 pages so you don't have to." Recurring — CBRE, Cushman, Colliers next. AI cites us, not the gate.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Why two quotes for the same office are 40% apart</b><span class="w">Scope normalization made visible — straight from our comparison-engine work.</span></span></div>
+<div class="ep"><span class="tag t-orig">Original</span><span><b>Your landlord's turnkey markup · WeWork vs your own office · the real cost of moving</b><span class="w">Translate-the-suit episodes; scenario planner CTAs.</span></span></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section class="sec sec-line" id="tools">
+<p class="eyebrow">07 · Layer 2 — Tools</p>
+<div class="split-r">
+<div><h2>One platform, three doors — where a viewer becomes a lead</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">These are interactive products, not content: the consolidated scorecard / scenario / budgeting app, presented as three entry points. Free, instant, email to save results. Every tool session also generates the proprietary data that powers Layer 3.</p></div>
+</div>
+<div class="g3" style="margin-top:48px">
+<div class="toolcard">
+<div class="toolui">
+<p class="tt">WORKSPACE SCORECARD</p>
+<div class="gauge"><span class="gn">43<span style="font-size:22px;color:#8b887c">/100</span></span><span class="gd">Your office grade</span></div>
+<div class="gbar"><i></i></div>
+<p style="color:#8b887c;font-size:11px;margin-top:12px">Killing your score: lighting · acoustics · no focus space</p>
+</div>
+<div class="toolinfo"><h4><span class="pc pc-p23">P2</span><span class="pc pc-p378">P7 re-run</span> Grade your office in 3 minutes</h4><p><b>The Backbone's named "Workplace Scorecard diagnostic offer."</b> Fed by Cribs + The Setup ("how does yours compare?"). In P7 the re-run is the between-projects touch. Moves the customer: anonymous viewer → identified lead with a diagnosed problem.</p></div>
+</div>
+<div class="toolcard">
+<div class="toolui">
+<p class="tt">BUDGET CHECKER</p>
+<p style="color:#f4f2ea;font-family:var(--display);font-size:30px;margin-bottom:2px">$287<span style="font-size:15px;color:#8b887c">/sqft est.</span></p>
+<div class="budgetrow">
+<span style="width:38%;background:#3a7a5e">Construction</span><span style="width:22%;background:#2e604b">MEP</span><span style="width:16%;background:#274a3c">AV/IT</span><span style="width:14%;background:#20342c">Furniture</span><span style="width:10%;background:#1a2a24">Fees</span>
+</div>
+<p style="color:#8b887c;font-size:11px;margin-top:12px">vs JLL Toronto range $230–375 · you're mid-band</p>
+</div>
+<div class="toolinfo"><h4><span class="pc pc-p23">P2–P3</span> What should it actually cost?</h4><p>The planning-tool lead magnet. Fed by The Real Cost + conquest ads ("before you get a quote, run your budget"). Moves the customer: exploring options → a POI-shaped business case with our numbers inside it.</p></div>
+</div>
+<div class="toolcard">
+<div class="toolui">
+<p class="tt">SCENARIO PLANNER</p>
+<div class="scen">
+<div><p class="sl">STAY + RENOVATE</p><p class="sv">$1.4M</p></div>
+<div><p class="sl">MOVE + FIT OUT</p><p class="sv">$2.1M</p></div>
+<div><p class="sl">HYBRID DOWNSIZE</p><p class="sv">$0.9M</p></div>
+<div><p class="sl">COWORKING</p><p class="sv">$1.1M/3yr</p></div>
+</div>
+</div>
+<div class="toolinfo"><h4><span class="pc pc-p23">P3</span><span class="pc pc-p378">enterprise</span> Model your next move</h4><p>The stay / move / downsize decision, modeled. Fed by The Real Cost + The Research; the door enterprise buyers enter through. Moves the customer: comparing vendors → deciding with us in the room.</p></div>
+</div>
+</div>
+</section>
+
+<section class="band sec-line" id="authority"><div class="sec">
+<p class="eyebrow">08 · Layer 3 — Authority</p>
+<div class="split-r">
+<div><h2>The assets that compound: rankings, research, people, rooms</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">None of these are shows. One is an interactive list, one is a research program, one is five people, one is a calendar. Together they're why, at decision time, the buyer trusts us instead of a broker.</p></div>
+</div>
+
+<div class="split" style="margin-top:56px">
+<div>
+<span class="tag t-type">Interactive list</span> <span class="pc pc-p378">P3 vendor selection</span>
+<h3 style="margin-top:14px">The Rankings — the CB Insights of office space</h3>
+<p style="font-size:14.5px;color:var(--sub)">Every vendor servicing office build-outs in Toronto and Canada — GCs, architects, furniture dealers, movers, AV integrators — tested, scored, and ranked by <b style="color:var(--ink)">what they're right for</b>, not who's biggest. MyGolfSpy's rigor, Wirecutter's framing. Buyers shortlist from it, vendors compete to be on it, AI cites it. Built on the same scope-normalization engine as our comparison work. The rule: no pay-to-play, methodology public — revenue comes from the funnel, never the list. Launch: two categories deep, not seven thin; each gets a test video in The Real Cost.</p>
+</div>
+<div style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px 28px">
+<p style="font-weight:600;font-size:14px;margin-bottom:2px">Toronto fit-out GCs, ranked <span class="tag t-orig" style="margin-left:6px">Format mock</span></p>
+<p class="sm" style="margin-bottom:6px">Best for: mid-size office (10–50K sqft)</p>
+<div style="display:grid;grid-template-columns:24px 1fr 90px 40px;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px"><span style="font-family:var(--display);font-size:17px;color:var(--mut)">1</span><span style="font-weight:600">Vendor A<span style="display:block;font-weight:400;font-size:11.5px;color:var(--sub)">Right for: speed — 14-wk delivery</span></span><span style="height:6px;border-radius:3px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:92%;background:var(--accent)"></i></span><b style="text-align:right">92</b></div>
+<div style="display:grid;grid-template-columns:24px 1fr 90px 40px;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px"><span style="font-family:var(--display);font-size:17px;color:var(--mut)">2</span><span style="font-weight:600">Vendor B<span style="display:block;font-weight:400;font-size:11.5px;color:var(--sub)">Right for: budget certainty — 96% on-quote</span></span><span style="height:6px;border-radius:3px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:88%;background:var(--accent)"></i></span><b style="text-align:right">88</b></div>
+<div style="display:grid;grid-template-columns:24px 1fr 90px 40px;gap:12px;align-items:center;padding:11px 0;font-size:13px"><span style="font-family:var(--display);font-size:17px;color:var(--mut)">3</span><span style="font-weight:600">Vendor C<span style="display:block;font-weight:400;font-size:11.5px;color:var(--sub)">Right for: design-heavy builds</span></span><span style="height:6px;border-radius:3px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:81%;background:var(--accent)"></i></span><b style="text-align:right">81</b></div>
+</div>
+</div>
+
+<div class="split" style="margin-top:64px">
+<div>
+<span class="tag t-type">Research program</span> <span class="pc pc-p1">P1 authority</span><span class="pc pc-p378">P7 quarterly touch</span>
+<h3 style="margin-top:14px">The Research — published open, never gated</h3>
+<p style="font-size:14.5px;color:var(--sub)"><b style="color:var(--ink)">Stream 1, borrowed authority:</b> Stanford's WFH Research publishes survey data monthly — we translate it, localize it to Toronto, and put it where the dinner-table audience is ("Stanford says the office fight is over. Nobody won."). <b style="color:var(--ink)">Stream 2, our own:</b> every tool session becomes benchmark data nobody else has — "We scored 100 Toronto offices. 71 failed." · "Toronto fit-out costs: our number vs JLL's" · the annual State of the Workspace. Video first, interactive page second, no PDF gate ever. Goal: one stat the Toronto market repeats without crediting us.</p>
+</div>
+<div>
+<span class="tag t-type">Five people</span> <span class="pc pc-p378">P3–P4 de-risk</span><span class="pc pc-p378">P7–P8 retention</span>
+<h3 style="margin-top:14px">Advisory board — credibility and the enterprise channel</h3>
+<p style="font-size:14.5px;color:var(--sub)">Five seats, each owning a lane: <b style="color:var(--ink)">workplace economics</b> (WFH Research orbit) · <b style="color:var(--ink)">design &amp; experience</b> · <b style="color:var(--ink)">cost &amp; construction</b> (bulletproofs the autopsies) · <b style="color:var(--ink)">corporate real estate</b> (speaks CFO) · <b style="color:var(--ink)">people &amp; future of work</b>. Used as: monthly "board weighs in" clips — cut for LinkedIn first — quotes in every report, hosts across the event ladder. What they unlock: <b style="color:var(--ink)">the enterprise sales channel</b> — board networks are procurement's front door; content warms the lead, a board intro converts it.</p>
+</div>
+</div>
+
+<div style="margin-top:64px">
+<span class="tag t-type">A calendar</span> <span class="pc pc-p1">P1–P2</span><span class="pc pc-p23">P6</span><span class="pc pc-p378">P8→P1 loop</span>
+<h3 style="margin-top:14px">Events — the ladder from audience to community to customer list</h3>
+<div class="cellgrid" style="margin-top:20px;grid-template-columns:repeat(4,1fr)">
+<div class="cell"><p class="co">Quarterly · open</p><h4>Scorecard Live</h4><p>We score a real office in front of a room, on camera. The audience meets us in person; the recording becomes a Cribs-style episode. Journey phase 1–2: awareness that converts to diagnostics.</p></div>
+<div class="cell"><p class="co">Quarterly · invite</p><h4>Executive roundtables</h4><p>Board-hosted, 12 seats, one hot question ("hybrid is settled — now what?"). No pitch. This is the journey's phase-2 engagement play and the enterprise pipeline's front door.</p></div>
+<div class="cell"><p class="co">Per project · client</p><h4>Move-in walkthroughs</h4><p>Executive walkthrough of a finished space, filmed. Journey phase 6: the move-in experience becomes the proof asset — and the client becomes the advocate on camera.</p></div>
+<div class="cell"><p class="co">Annual · tentpole</p><h4>State of the Workspace</h4><p>The research report launches on stage: board commentary, client stories, press in the room. Journey phase 8's advocacy program — and the loop back into phase 1 awareness.</p></div>
+</div>
+</div>
+</div></section>
+
+<section class="sec sec-line" id="growth">
+<p class="eyebrow">09 · Growth engines</p>
+<div class="split-r">
+<div><h2>How strangers find the machine</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">Four engines move people into and between the layers. Each has a distinct job, a distinct audience, and a distinct metric — and each maps to a specific moment in the customer journey (section 10): partnerships and LinkedIn work <b style="color:var(--ink)">before the trigger fires</b> (phase 1), AI SEO and conquest ads catch buyers <b style="color:var(--ink)">after it fires</b> (phases 2–3).</p></div>
+</div>
+
+<h3 style="margin-top:48px">Engine 1 — Influencer partnerships <span class="sm" style="font-weight:400">(feeds Layer 1 · journey phase 1 · metric: borrowed-audience subscribers)</span></h3>
+<p class="sm" style="max-width:680px">Why it works: the fastest way to an audience is someone else's. Every collab is structured to trade our unfair assets — project access, real cost data, inventory — for their distribution. One collab per quarter minimum, scaling from reviewers (cheap, credible) to builders (expensive, explosive).</p>
+<table>
+<tr><th style="width:150px">Group</th><th>Targets (your board + additions)</th><th>The pitch</th></tr>
+<tr><td><b>Reviewers</b><br><span class="sm">credibility</span></td><td class="sm"><a href="https://www.nytimes.com/wirecutter/">Wirecutter</a> (29K) · <a href="https://www.btod.com">BTOD</a> (16K) · <a href="https://www.youtube.com/c/Ahnestly">Ahnestly</a> (209K) · Jays Two Cents (350K) · David Zhang (342K) · + TechSource / Setup Wars, randomfrankp <span style="color:var(--mut)">(verify counts)</span></td><td class="sm">"We'll get you access — new lines, rare finds, and real cost data nobody else will share."</td></tr>
+<tr><td><b>Builders &amp; storytellers</b><br><span class="sm">reach</span></td><td class="sm"><a href="https://www.youtube.com/channel/UCSrPuHtKbst7Zy8pyWn_3Cg">What's Inside</a> · <a href="https://www.youtube.com/@MyFirstMillionPod">My First Million</a> · MrBeast · <a href="https://www.youtube.com/watch?v=yb-kYt1lpnI">Vox</a> · + Colin &amp; Samir, Never Too Small, Cleo Abram</td><td class="sm">"We design and build your space on camera at cost — you get the office and the video, we get the case study."</td></tr>
+<tr><td><b>Toronto locals</b><br><span class="sm">proximity + leads</span></td><td class="sm">Drake (moonshot) · Office Furniture Liquidation · local founders, agencies, athletes with followings</td><td class="sm">"Toronto creator office makeover, filmed by both of us." Local wins convert directly into fit-out leads.</td></tr>
+</table>
+
+<h3 style="margin-top:64px">Engine 2 — The LinkedIn program <span class="sm" style="font-weight:400">(carries every layer to the buying group · journey phases 1–3 and 7 · metric: buying-group followers + inbound DMs)</span></h3>
+<p class="sm" style="max-width:680px">The missing channel in most creator playbooks — and the only one where the entire buying group already is: CRE, facilities, procurement, IT, HR, finance. TikTok reaches the employee; LinkedIn reaches the committee. This is a <b style="color:var(--ink)">daily</b> program, not a repost bucket:</p>
+<div class="cellgrid" style="margin-top:24px;grid-template-columns:repeat(4,1fr)">
+<div class="cell"><p class="co">Daily · founder voice</p><h4>Andrew's POV post</h4><p>One insider observation a day, written like a person: a quote from a real project, a number nobody shares, a take on the RTO story of the week. Founder pages out-reach company pages — this is the flagship.</p></div>
+<div class="cell"><p class="co">3×/week · company</p><h4>Research &amp; data cuts</h4><p>The Data as native carousels and charts: "We scored 100 Toronto offices," Stanford translations, fit-out cost breakdowns. Built to be screenshotted into the buying group's Slack.</p></div>
+<div class="cell"><p class="co">Monthly · board</p><h4>The board weighs in</h4><p>90-second board clips, cut vertical for LinkedIn first. Their faces carry enterprise credibility our young voice can't yet — and their networks reshare into procurement's feed.</p></div>
+<div class="cell"><p class="co">Per project</p><h4>Project stories</h4><p>Move-in walkthroughs and case studies, tagged to the client. Journey phase 6–8 content that does double duty as phase-1 proof for the next buyer watching.</p></div>
+</div>
+<p class="sm" style="margin-top:24px;max-width:680px"><b style="color:var(--ink)">The week, concretely:</b></p>
+<div class="wk">
+<div><p class="dy">MONDAY</p><h5>Founder POV</h5><p>Andrew's take on the week's office story — the RTO headline, a Toronto lease event, a market number. First-person, no logo.</p></div>
+<div><p class="dy">TUESDAY</p><h5>Data cut</h5><p>One chart from The Research as a native carousel: fit-out costs, scorecard findings, Stanford translation. Built to be screenshotted into a buying group's Slack.</p></div>
+<div><p class="dy">WEDNESDAY</p><h5>Receipts post</h5><p>A real number from a real project: "This 12K sqft fit-out came in $41/sqft under the JLL average. Here's the line item that did it."</p></div>
+<div><p class="dy">THURSDAY</p><h5>Clip day</h5><p>Best pillar short reformatted for LinkedIn with a written setup. Monthly, this slot is "the board weighs in."</p></div>
+<div><p class="dy">FRIDAY</p><h5>Story day</h5><p>Project story or move-in walkthrough tagged to the client (P6–P8) — or the newsletter's best insight repackaged.</p></div>
+</div>
+<p class="sm" style="margin-top:20px;max-width:680px"><b style="color:var(--ink)">The audience strategy:</b> connect deliberately with the Backbone's named buying group — CRE, facilities, procurement, IT, HR, finance — in target accounts; 15 minutes of comments daily on their posts before we expect them on ours. Founder page is the flagship (personal pages out-reach company pages); the company page republishes and archives. <b style="color:var(--ink)">KPIs:</b> buying-group followers in target accounts · inbound DMs · post → tool-session clickthroughs · board-clip reshares by board members' networks.</p>
+
+<h3 style="margin-top:64px">Engine 3 — AI SEO <span class="sm" style="font-weight:400">(drops buyers into Layer 2, cites Layer 3 · journey phases 1–2 · metric: share-of-answer)</span></h3>
+<div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 30px;max-width:640px;margin:24px 0 0">
+<p style="font-size:14.5px;font-weight:600;margin-bottom:12px">"What should an office fit-out cost in Toronto?"</p>
+<p style="font-size:14px;color:var(--sub);line-height:1.7;margin:0">A medium-quality office fit-out in Toronto typically runs $230–375 per square foot. Work_Space's open Toronto benchmark <span class="tag t-orig" style="border-radius:9px">workspace.ca</span> breaks this into construction, MEP, AV/IT and furniture, and offers a free budget checker <span class="tag t-orig" style="border-radius:9px">workspace.ca/budget</span> to estimate a specific project…</p>
+</div>
+<p class="sm" style="margin-top:16px;max-width:640px">How: every video gets a companion page with the data in clean structured text (AI cites pages, not TikToks) · our benchmarks and rankings are the primary sources AI prefers · monthly, we ask the major AI platforms our 20 target questions and log who gets cited — share-of-answer, tracked like share-of-voice.</p>
+
+<h3 style="margin-top:64px">Engine 4 — Conquest ads <span class="sm" style="font-weight:400">(drops buyers into Layer 2 at the decision moment · journey phases 2–3 · metric: cost per tool session)</span></h3>
+<p class="sm" style="max-width:640px">Your note verbatim: buy everyone's ad words — "find cheaper / check your construction budget." This is what the searcher sees:</p>
+<div class="browser" style="margin-top:24px;max-width:760px">
+<div class="bar"><span class="dot" style="background:#f57369"></span><span class="dot" style="background:#f5bf4f"></span><span class="dot" style="background:#61c454"></span><span class="url">google.com/search?q=office+fit+out+contractor+toronto</span></div>
+<div style="background:#fff;font-family:arial,helvetica,sans-serif;padding:20px 28px 26px">
+<div style="display:flex;align-items:center;gap:24px;margin-bottom:14px">
+<div style="font-size:26px;font-weight:500;letter-spacing:-1px"><b style="color:#4285F4;font-weight:500">G</b><b style="color:#EA4335;font-weight:500">o</b><b style="color:#FBBC05;font-weight:500">o</b><b style="color:#4285F4;font-weight:500">g</b><b style="color:#34A853;font-weight:500">l</b><b style="color:#EA4335;font-weight:500">e</b></div>
+<div style="flex:1;max-width:560px;display:flex;align-items:center;gap:12px;border:1px solid #dfe1e5;border-radius:24px;padding:11px 18px;font-size:14px;color:#202124;box-shadow:0 1px 6px rgba(32,33,36,0.12)"><span>office fit out contractor toronto</span><span style="margin-left:auto;color:#4285f4;font-size:13px">🎤</span><span style="color:#4285f4;font-size:13px">🔍</span></div>
+</div>
+<div style="display:flex;gap:24px;font-size:13px;color:#5f6368;border-bottom:1px solid #ebebeb;padding:0 0 0 64px;margin-bottom:22px"><span style="color:#1a73e8;border-bottom:3px solid #1a73e8;font-weight:500;padding:0 2px 10px">All</span><span style="padding:0 2px 10px">Images</span><span style="padding:0 2px 10px">Maps</span><span style="padding:0 2px 10px">News</span><span style="padding:0 2px 10px">Videos</span><span style="padding:0 2px 10px">More</span></div>
+<div style="padding-left:64px;margin-bottom:26px;max-width:600px">
+<div style="border:1px solid rgba(14,94,74,0.2);background:#fafffd;border-radius:12px;padding:16px 18px;margin-left:-18px">
+<p style="font-size:13px;font-weight:700;color:#202124;margin-bottom:6px">Sponsored</p>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:2px"><span style="width:26px;height:26px;border-radius:50%;background:#0e5e4a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">W</span><div><p style="font-size:14px;color:#202124;line-height:1.2;margin:0">Work_Space</p><p style="font-size:12px;color:#4d5156;margin:0">https://www.workspace.ca › budget-checker</p></div></div>
+<p style="font-size:20px;color:#1a0dab;margin:4px 0 3px;font-weight:400;line-height:1.3">Before you get a quote — run your budget in 60 seconds</p>
+<p style="font-size:14px;color:#474747;line-height:1.57;margin:0">Free fit-out budget checker built on real Toronto project data. See where every dollar goes. No forms, no sales call. Then pick your builder with open eyes.</p>
+</div>
+</div>
+<div style="padding-left:64px;margin-bottom:26px;max-width:600px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:2px"><span style="width:26px;height:26px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">G</span><div><p style="font-size:14px;color:#202124;line-height:1.2;margin:0">Govan Brown</p><p style="font-size:12px;color:#4d5156;margin:0">https://www.govanbrown.com</p></div></div>
+<p style="font-size:20px;color:#1a0dab;margin:4px 0 3px;font-weight:400;line-height:1.3">Govan Brown | Construction Managers &amp; General Contractors</p>
+<p style="font-size:14px;color:#474747;line-height:1.57;margin:0">Interior construction across Canada. Office build-outs, retail, and institutional projects delivered…</p>
+</div>
+<div style="padding-left:64px;max-width:600px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:2px"><span style="width:26px;height:26px;border-radius:50%;background:#5b6770;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">C</span><div><p style="font-size:14px;color:#202124;line-height:1.2;margin:0">Clearspace</p><p style="font-size:12px;color:#4d5156;margin:0">https://www.clearspace.com</p></div></div>
+<p style="font-size:20px;color:#1a0dab;margin:4px 0 3px;font-weight:400;line-height:1.3">Clearspace | Office Design &amp; Build</p>
+<p style="font-size:14px;color:#474747;line-height:1.57;margin:0">Full-service office design and build. From test fit to move-in…</p>
+</div>
+</div>
+</div>
+<table style="max-width:760px">
+<tr><th>They search</th><th>Our ad</th></tr>
+<tr><td class="sm">Clearspace · Govan Brown · office contractors</td><td class="sm">"Before you get a quote — check your construction budget free in 60 seconds."</td></tr>
+<tr><td class="sm">Herman Miller Aeron · office chairs Toronto</td><td class="sm">"New or used — find the chair that's right for you. Honest guide, real prices."</td></tr>
+<tr><td class="sm">CBRE fit-out cost guide · JLL fit-out guide</td><td class="sm">"Skip the 80-page PDF. The same answer, free, no form."</td></tr>
+<tr><td class="sm">best office contractor Toronto</td><td class="sm">"See the rankings. Tested, scored, no pay-to-play."</td></tr>
+</table>
+</section>
+
+<section class="band sec-line" id="journey"><div class="sec">
+<p class="eyebrow">10 · Journey fit</p>
+<div class="split-r">
+<div>
+<h2>This platform is the marketing layer of the customer journey</h2>
+<p class="lede">The GTM Backbone runs one 8-phase lifecycle — a loop, not a funnel, anchored to T-0, the order date. The buying process only occupies phases 2–4; the recurring-revenue thesis lives in phases 5–8. Every piece of this content plan has exactly one home in that loop.</p>
+</div>
+<div style="padding-top:8px">
+<p style="font-size:15px;color:var(--sub)">The journey's Layer 3 already asks for this platform by name: phase 1 calls for an <b style="color:var(--ink)">"owned media program to workplace decision-makers"</b> — that's the four pillars. Phase 2's lead campaign is the <b style="color:var(--ink)">"Workplace Scorecard diagnostic offer"</b> — that's our tool. Phase 7 wants <b style="color:var(--ink)">"quarterly insight reports"</b> and asset-age refresh campaigns — that's The Research and Gear. This plan isn't a second strategy to reconcile with the journey; it's the delivery mechanism for the journey's marketing layer. The journey decides <em>when</em> each asset fires and <em>at whom</em> — the platform is <em>what</em> fires.</p>
+</div>
+</div>
+
+<p class="sm" style="margin-top:40px;max-width:760px"><b style="color:var(--ink)">How to read this — and how to port it:</b> the table below is written in the Backbone's own Layer 3 lane vocabulary (marketing objective · campaigns and plays · content and assets · channels · metrics). Each row is one journey phase; each cell pastes directly into the matching lane of that phase in the app. Gold rows are the Backbone's hot phases: T-0 where margin locks, and Adoption where recurring revenue is made.</p>
+<table class="jt">
+<tr><th>Phase</th><th>Marketing objective<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Backbone verbatim</span></th><th>Campaigns &amp; plays<br><span style="font-weight:400;text-transform:none;letter-spacing:0">what we run</span></th><th>Content &amp; assets<br><span style="font-weight:400;text-transform:none;letter-spacing:0">what must exist</span></th><th>Channels</th><th>Conversion we drive<br><span style="font-weight:400;text-transform:none;letter-spacing:0">and its metric</span></th></tr>
+<tr>
+<td><span class="pc pc-p1">P1</span><span class="pnm">Awareness</span><span class="pms">DEMAND GENERATION</span></td>
+<td><span class="pobj">"Be the known workplace authority before the trigger fires."</span></td>
+<td><b>The four pillars</b> publishing engine · daily shorts · <b>founder LinkedIn</b> (Mon/Wed slots) · influencer collabs · <b>Scorecard Live</b> (open event)</td>
+<td>Episode library + companion pages · <b>newsletter</b> · Stanford translations · whitepaper autopsies</td>
+<td>YouTube · Shorts/TikTok/IG · LinkedIn · newsletter · AI answers</td>
+<td class="cnv"><b>Trigger fires &rarr; they already follow us &rarr; discovery conversation.</b><br>Branded search · subscribers · share-of-answer</td>
+</tr>
+<tr>
+<td><span class="pc pc-p23">P2</span><span class="pnm">Consideration</span><span class="pms">ENGAGEMENT &amp; EDUCATION</span></td>
+<td><span class="pobj">"Turn the trigger into a POI-shaped conversation."</span></td>
+<td><b>Workspace Scorecard diagnostic offer</b> — the Backbone's named play · <b>conquest ads</b> on competitor + problem terms · <b>executive roundtables</b></td>
+<td><b>Workspace Scorecard</b> · <b>Budget Checker</b> · cost-and-disruption guides (Real Cost cuts)</td>
+<td>Tool landing pages · Google ads · LinkedIn · email nurture</td>
+<td class="cnv"><b>Exploration &rarr; a business case with our numbers inside it.</b><br>Tool sessions &rarr; identified leads · cost per session</td>
+</tr>
+<tr>
+<td><span class="pc pc-p23">P3</span><span class="pnm">Evaluation</span><span class="pms">PROOF &amp; PREFERENCE</span></td>
+<td><span class="pobj">"Make POI the safest integrated choice before pricing."</span></td>
+<td><b>The Rankings</b> category launches · case-study episodes ("$200 vs $500/sqft") · <b>board weighs-in</b> clips</td>
+<td>Vendor rankings + public methodology · <b>Scenario Planner</b> · project-film proof library</td>
+<td>Rankings pages (AI-cited) · LinkedIn · AE enablement</td>
+<td class="cnv"><b>Shortlist &rarr; POI preferred.</b><br>Rankings traffic &rarr; shortlist requests</td>
+</tr>
+<tr class="hotr">
+<td><span class="pc pc-p4">P4</span><span class="pnm">Purchase · T-0</span><span class="pms">DECISION ENABLEMENT</span></td>
+<td><span class="pobj">"De-risk the integrated award for every approver."</span></td>
+<td>None new — enablement only. Content's quietest phase by design; everything upstream was for this moment.</td>
+<td>TCO comparisons from Real Cost data · <b>Research citations</b> · reference stories · board gravitas</td>
+<td>Direct · exec-to-exec</td>
+<td class="cnv"><b>Proposal &rarr; closed won at T-0</b> (92&ndash;94% of margin locks here).<br>Content-assisted win rate</td>
+</tr>
+<tr>
+<td><span class="pc pc-p4">P5</span><span class="pnm">Onboarding — build</span><span class="pms">CUSTOMER COMMUNICATIONS</span></td>
+<td><span class="pobj">"Keep every stakeholder confident while POI delivers."</span></td>
+<td><b>Milestone communications, filmed</b> — every delivery doubles as content production</td>
+<td>Build timelapses · milestone clips in the client's voice · the story bank</td>
+<td>Direct project comms · LinkedIn (client-tagged)</td>
+<td class="cnv"><b>Delivery &rarr; accepted handoff, on camera.</b><br>% of projects filmed</td>
+</tr>
+<tr>
+<td><span class="pc pc-p4">P6</span><span class="pnm">Onboarding — move-in</span><span class="pms">LAUNCH EXPERIENCE</span></td>
+<td><span class="pobj">"Make move-in the proof of the promise."</span></td>
+<td><b>Move-in walkthrough event</b>, filmed with the executive</td>
+<td>Walkthrough video &rarr; future <b>Office Cribs</b> episode · project story post</td>
+<td>On-site · YouTube · LinkedIn</td>
+<td class="cnv"><b>Move-in &rarr; adoption handoff</b> — P6 proof becomes P1 content for the next buyer.<br>Episodes per project</td>
+</tr>
+<tr class="hotr">
+<td><span class="pc pc-p378">P7</span><span class="pnm">Adoption</span><span class="pms">CUSTOMER MARKETING</span></td>
+<td><span class="pobj">"Stay visibly valuable between projects."</span></td>
+<td>Quarterly <b>Research</b> drops · <b>Gear refresh campaigns</b> keyed to asset age (furniture 8&ndash;12 yrs, AV 3&ndash;5 yrs) · <b>scorecard re-runs</b></td>
+<td>Quarterly insight reports · newsletter · refresh guides by asset type</td>
+<td>Email · LinkedIn · quarterly reviews</td>
+<td class="cnv"><b>Dormant account &rarr; verified trigger.</b><br>Touches per account per quarter · re-run rate — feeds the C$30&ndash;50K recurring hedgehog</td>
+</tr>
+<tr>
+<td><span class="pc pc-p378">P8</span><span class="pnm">Renewal &amp; expansion</span><span class="pms">ADVOCACY &amp; EXPANSION</span></td>
+<td><span class="pobj">"Turn the champion into the channel."</span></td>
+<td><b>Champion on camera</b> · <b>State of the Workspace</b> (annual tentpole) · speaking &amp; reference program</td>
+<td>Annual value report · client story episodes · cross-site case studies</td>
+<td>The event · references · LinkedIn</td>
+<td class="cnv"><b>P8 &rarr; P1: their advocacy is the next account's awareness. The loop closes.</b><br>Advocacy assets per account · referral volume</td>
+</tr>
+</table>
+<p class="sm" style="margin-top:28px;max-width:760px">One asymmetry to notice, on purpose: the platform is loudest in P1&ndash;P3 (before the buying process ends) and P7 (between projects) — exactly the phases where the Backbone says marketing owns the outcome. P5&ndash;P6 flip the platform from publishing to <em>production</em>: delivery is where next year's episodes get filmed.</p>
+</div></section>
+
+<section class="band sec-line" id="plan"><div class="sec">
+<p class="eyebrow">11 · Team, budget &amp; roadmap</p>
+<div class="split-r">
+<div><h2>Who builds it, what it costs, and the gates it must pass</h2></div>
+<div style="padding-top:8px"><p style="font-size:15px;color:var(--sub)">Placeholder CAD rates to pressure-test against real quotes. Principle: hire the editor before the strategist, keep the faces in-house, and let retention data — not view counts — decide what scales.</p></div>
+</div>
+<table>
+<tr><th>Role</th><th>Owns</th><th style="width:90px">When</th><th style="width:100px">~CAD/mo</th></tr>
+<tr><td><b>On-camera host / creator</b></td><td class="sm">The face and the voice — young, curious, credible. Andrew as the industry-insider second voice.</td><td class="sm">Month 1</td><td class="sm">$6,000</td></tr>
+<tr><td><b>Short-form editor</b></td><td class="sm">Daily output; owns the captions-and-receipts style.</td><td class="sm">Month 1</td><td class="sm">$5,500</td></tr>
+<tr><td><b>Producer / researcher</b></td><td class="sm">Episode research, fact-checking, autopsies, guest booking.</td><td class="sm">Month 1</td><td class="sm">$5,000</td></tr>
+<tr><td><b>Motion designer</b> <span class="sm">(fractional)</span></td><td class="sm">The number-on-screen visual language; pillar identities.</td><td class="sm">Month 1</td><td class="sm">$2,000</td></tr>
+<tr><td><b>Long-form editor</b></td><td class="sm">YouTube episodes; steps up when Cribs launches.</td><td class="sm">Month 4</td><td class="sm">$5,000</td></tr>
+<tr><td><b>Growth &amp; AI-SEO</b> <span class="sm">(fractional)</span></td><td class="sm">Companion pages, share-of-answer tracking, conquest ads.</td><td class="sm">Month 4</td><td class="sm">$3,500</td></tr>
+<tr><td><b>Rankings analyst</b></td><td class="sm">Vendor testing methodology, data collection, category reports.</td><td class="sm">Month 7</td><td class="sm">$6,500</td></tr>
+<tr><td><b>Community &amp; events</b> <span class="sm">(fractional)</span></td><td class="sm">Scorecard Live, newsletter, board coordination.</td><td class="sm">Month 7</td><td class="sm">$3,000</td></tr>
+</table>
+<div class="statstrip">
+<div><div class="n">~$24K<span style="font-size:20px">/mo</span></div><div class="l">Months 1–3 · core team $18.5K + ads $3K + tools &amp; gear $2.5K</div></div>
+<div><div class="n">~$38K<span style="font-size:20px">/mo</span></div><div class="l">Months 4–6 · + long-form editor, growth, ads to $6K</div></div>
+<div><div class="n">~$55K<span style="font-size:20px">/mo</span></div><div class="l">Months 7–12 · + rankings, events, board honoraria, ads to $8K. Year one ≈ C$470–500K</div></div>
+</div>
+<table style="margin-top:64px">
+<tr><th style="width:150px">Phase</th><th>Content (Layer 1)</th><th>Tools &amp; growth (Layer 2 + engines)</th><th>Authority (Layer 3) &amp; gate</th></tr>
+<tr><td><b>Months 1–3</b><br><span class="sm">Prove the voice</span></td><td class="sm">Gear + The Real Cost shorts daily (60+); first whitepaper autopsy (JLL 2026).</td><td class="sm">Scorecard landing live in beta; every video points at it from day one.</td><td class="sm">Monthly Stanford translation begins. <b>Gate:</b> one format &gt;20% above retention baseline · 500 scorecards.</td></tr>
+<tr><td><b>Months 4–6</b><br><span class="sm">Prove the funnel</span></td><td class="sm">Office Cribs launches (Toronto tour #1); The Setup weekly; newsletter starts.</td><td class="sm">Budget Checker live; conquest ads on 10 terms; first AI share-of-answer reading; first reviewer collab.</td><td class="sm">Two board seats signed (cost + design). <b>Gate:</b> cost per lead under paid-search benchmark · 2,500 scorecards.</td></tr>
+<tr><td><b>Months 7–9</b><br><span class="sm">Prove the flywheel</span></td><td class="sm">Toronto creator office build (the case-study collab); board clips monthly.</td><td class="sm">Scenario Planner live; LinkedIn enterprise track running.</td><td class="sm">Research report #1 + Rankings category #1 + first Scorecard Live; board complete. <b>Gate:</b> first press/AI citation · first board-sourced enterprise conversation.</td></tr>
+<tr><td><b>Months 10–12</b><br><span class="sm">The tentpole</span></td><td class="sm">State of the Workspace week: every pillar cuts from the annual report.</td><td class="sm">Builder-tier collab attempt (What's Inside / MFM); enterprise pipeline reviewed.</td><td class="sm">Annual report + launch event + Rankings category #2. <b>Gate:</b> year-two plan priced from real CAC and retention.</td></tr>
+</table>
+<p class="sm" style="margin-top:20px">Steady-state weekly cadence: 5–7 shorts · 1–2 long-form · 1 newsletter · 3 LinkedIn clips · 1 board clip per month. One production system, every channel fed.</p>
+</div></section>
+
+<section class="band-dark" id="refs"><div class="sec" style="padding-top:80px;padding-bottom:88px">
+<p class="eyebrow">References</p>
+<h2 style="color:#f4f2ea">The videos, reports, and examples behind this plan</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:40px" class="g3">
+<div>
+<h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#8fbfae;padding-bottom:12px;border-bottom:1px solid #3a3930">Videos &amp; shorts</h4>
+<div>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=yb-kYt1lpnI"><span style="font-size:14px;font-weight:600;color:#f4f2ea">What it's like to work in the world's greatest office</span><span style="display:block;font-size:12px;color:#8b887c">Vox · ~2.4M · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=x-aeDaHIEbY"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Get a Herman Miller Aeron for cheap</span><span style="display:block;font-size:12px;color:#8b887c">~1.4M · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=S-wch_zWrV8"><span style="font-size:14px;font-weight:600;color:#f4f2ea">How a chair exposed the worst YouTubers</span><span style="display:block;font-size:12px;color:#8b887c">Ahnestly · ~1M · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=BbTnDBiWmI4"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Are wood slat wall panels worth it?</span><span style="display:block;font-size:12px;color:#8b887c">~857K · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=D0TlIWpUFdU"><span style="font-size:14px;font-weight:600;color:#f4f2ea">What are the best chairs under $200?</span><span style="display:block;font-size:12px;color:#8b887c">~683K · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=CWBxNd7fdkM"><span style="font-size:14px;font-weight:600;color:#f4f2ea">New vs used Herman Miller — $2,437 spent</span><span style="display:block;font-size:12px;color:#8b887c">Fit-not-price grammar</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=kObmcOaPcbM"><span style="font-size:14px;font-weight:600;color:#f4f2ea">We built the world's greatest office</span><span style="display:block;font-size:12px;color:#8b887c">Dude Perfect · DPHQ3</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=lUzpK0tGFcE"><span style="font-size:14px;font-weight:600;color:#f4f2ea">The MrBeast mega-studio tour</span><span style="display:block;font-size:12px;color:#8b887c">Your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=cXDQ33cex-g"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Inside my backyard office studio</span><span style="display:block;font-size:12px;color:#8b887c">Your "backyard offices" note</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=HBe6XUFvtRY"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Google office tour</span><span style="display:block;font-size:12px;color:#8b887c">Your "coolest HQs" note</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=23t_ynq2tmk"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Huberman: optimizing your workspace</span><span style="display:block;font-size:12px;color:#8b887c">Your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/watch?v=8gHorgCbsHs"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Dream home office makeover &amp; tour</span><span style="display:block;font-size:12px;color:#8b887c">Home office setups ★</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0" href="https://www.youtube.com/shorts/lw2rpvUVumc"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Shorts: used Aeron · MrBeast tour · desk setup</span><span style="display:block;font-size:12px;color:#8b887c">The three embedded in the phones</span></a>
+</div>
+</div>
+<div>
+<h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#8fbfae;padding-bottom:12px;border-bottom:1px solid #3a3930">Reports &amp; research</h4>
+<div>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.jll.com/en-us/guides/us-canada-office-fit-out-costs-guide"><span style="font-size:14px;font-weight:600;color:#f4f2ea">JLL US-Canada Fit-Out Costs Guide 2026</span><span style="display:block;font-size:12px;color:#8b887c">$295/sqft · 3,600 projects · shown verbatim in §02</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.jll.com/en-us/guides/global-office-fit-out-costs-guide"><span style="font-size:14px;font-weight:600;color:#f4f2ea">JLL Global Fit-Out Costs Guide 2026</span><span style="display:block;font-size:12px;color:#8b887c">$205/sqft global · 68 cities</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://wfhresearch.com/research-and-policy/"><span style="font-size:14px;font-weight:600;color:#f4f2ea">WFH Research (Bloom, Barrero, Davis)</span><span style="display:block;font-size:12px;color:#8b887c">A quarter of paid workdays at home · monthly data</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://news.stanford.edu/stories/2025/03/return-to-office-not-everybody-is-doing-it"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Stanford Report: WFH is here to stay</span><span style="display:block;font-size:12px;color:#8b887c">Only 12% of execs plan RTO mandates</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://builtin.com/articles/return-to-office-2026"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Built In: Is 2026 the year we return?</span><span style="display:block;font-size:12px;color:#8b887c">Fortune 100 full-time office: 5% → 54% since 2023</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0" href="https://thewalrus.ca/return-to-office-mandates/"><span style="font-size:14px;font-weight:600;color:#f4f2ea">The Walrus: Welcome back to the office</span><span style="display:block;font-size:12px;color:#8b887c">The Canadian RTO backlash</span></a>
+</div>
+</div>
+<div>
+<h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#8fbfae;padding-bottom:12px;border-bottom:1px solid #3a3930">Examples, partners &amp; conquest</h4>
+<div>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/c/Ahnestly"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Ahnestly</span><span style="display:block;font-size:12px;color:#8b887c">Reviewer partner target · 209K</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.btod.com"><span style="font-size:14px;font-weight:600;color:#f4f2ea">BTOD</span><span style="display:block;font-size:12px;color:#8b887c">Reviewer partner target · 16K</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.nytimes.com/wirecutter/"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Wirecutter (NYT)</span><span style="display:block;font-size:12px;color:#8b887c">Rankings model + partner target</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://mygolfspy.com"><span style="font-size:14px;font-weight:600;color:#f4f2ea">MyGolfSpy</span><span style="display:block;font-size:12px;color:#8b887c">Independent-testing model for The Rankings</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.cbinsights.com"><span style="font-size:14px;font-weight:600;color:#f4f2ea">CB Insights</span><span style="display:block;font-size:12px;color:#8b887c">Voice + data-business model</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/channel/UCSrPuHtKbst7Zy8pyWn_3Cg"><span style="font-size:14px;font-weight:600;color:#f4f2ea">What's Inside</span><span style="display:block;font-size:12px;color:#8b887c">Builder partner target · your board</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0;border-bottom:1px solid #2c2b25" href="https://www.youtube.com/@MyFirstMillionPod"><span style="font-size:14px;font-weight:600;color:#f4f2ea">My First Million</span><span style="display:block;font-size:12px;color:#8b887c">Builder partner target · HubSpot playbook proof</span></a>
+<a style="display:block;text-decoration:none;padding:13px 0" href="https://www.govanbrown.com"><span style="font-size:14px;font-weight:600;color:#f4f2ea">Govan Brown · Clearspace · Herman Miller</span><span style="display:block;font-size:12px;color:#8b887c">Your ad-words conquest list</span></a>
+</div>
+</div>
+</div>
+<p style="font-size:12.5px;color:#8b887c;margin-top:48px">Work_Space content platform strategy · v7 · July 2026. The JLL text, charts, and article images are the real, live assets from their publishers; the phones play real YouTube Shorts. View counts from your notes and public listings — verify before outreach. Tool interfaces, vendor ranking rows, and the AI answer are format mocks. Budget figures are placeholders for pressure-testing. Section 10 maps to the POI GTM Backbone (v7): 8-phase lifecycle, T-0 anchor, buying process phases 2–4, recurring revenue phases 5–8 — phase and campaign names quoted from the Backbone's Layer 3.</p>
+</div></section>
+
+</body>
+</html>
